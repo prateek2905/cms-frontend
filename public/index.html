@@ -5,13 +5,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>vue app</title>
   </head>
-  <body>
+  <body> 
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+
+    <div id="app">
+      <div class="offer-letter-background">
+        <div class="offer-letter-content">
+           <div class="logo-section">
+               <img :src="logo">
+           </div>
+           <div class="main-content">
+             <div class="left-para">
+               <h2>Welcome to the team {{ employee }}</h2>
+               <p>
+                 Congratulations! The team at Dunder Mifflin is very excited to extend this offer to you to join our family. We believe you would be a perfect fit on our team and make a huge impact here. We hope you join us on our mission to make paper more accessible and affordable for all.
+               </p>
+               <div class="offer-details-section">
+                 Title: 
+                 {{ jobTitle }} <br>
+                 Location:
+                 {{ jobLocation }} <br>
+                 Offer Expires:
+                 {{ expiry }} <br>
+               </div>
+               <div class="team-image">
+                <img :src="teamImage">
+              </div>
+              <div class="final-section">
+                <div class="base-salary">
+                  <div class="final-section-heading">Base Salary</div>
+                  <div class="final-section-value">$100,000</div>
+                  <div class="final-section-description">Your annual Salary</div>
+                </div>
+                <div class="equity">
+                  <div class="final-section-heading">Equity</div>
+                  <div class="final-section-value">100,000</div>
+                  <div class="final-section-description">Options earned over 4 years</div>
+                </div>
+                <div class="sign-on-bonus">
+                  <div class="final-section-heading">Sign on Bonus</div>
+                  <div class="final-section-value">10,000</div>
+                  <div class="final-section-description">For joining us</div>
+                </div>
+                <div class="target-bonus">
+                  <div class="final-section-heading">Target Bonus</div>
+                  <div class="final-section-value">10%</div>
+                  <div class="final-section-description">If you hit your performance target</div>
+                </div>
+                <div class="benefits">
+                  <div class="final-section-heading">Benefits</div>
+                  <div class="final-section-value">$20,400</div>
+                  <div class="final-section-description">Company's estimated annual contribution</div>
+                </div>
+              </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
+    <script src="./components/main.js"></script>
+
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+
   </body>
 </html>
