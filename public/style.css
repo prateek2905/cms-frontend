@@ -5,6 +5,9 @@
   color: #000000d9;
   font-size: 16px;
 }
+body {
+  background-color: rgb(46, 122, 167);
+}
 .logo-section img {
   width: 110px;
 }
@@ -17,6 +20,7 @@
 }
 .offer-letter-background {
   /* border: 5px solid red; */
+  background-color: white;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
