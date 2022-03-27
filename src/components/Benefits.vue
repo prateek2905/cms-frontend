@@ -6,11 +6,15 @@
             <h2>
               Benefits
             </h2>
-            <p>
-             For you and -- dependents
-            </p>
+            <div v-if="counter >= 0" class="dependents">
+              for you and
+              <button :disabled="counter < 1 " v-on:click="counter -= 1, contribution-=3400" >-</button>
+              <div class="counter">{{ counter }}</div>
+              <button :disabled="counter > 4" v-on:click="counter += 1, contribution+=3400" >+</button>
+              dependents
+            </div>
             <div class="contribution">
-              <div class="contribution-value"><h1>20,000</h1></div>
+              <div class="contribution-value"><h1>{{ contribution }}</h1></div>
               <div class="contribution-description">Company's estimated annual contribution</div>
             </div>
             <div class="expand-all">Expand All</div>
@@ -24,7 +28,12 @@
 <script>
 
 export default {
-    
+    data(){
+      return{
+        counter: 0,
+        contribution: 20400
+      }
+    }
 }
 
 </script>
