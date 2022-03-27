@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="main-content-image">
-          <img src="/src/assets/the_office.jpeg" alt="" />
+          <img :src="companyImg" alt="companyImg" />
         </div>
       </div>
       <div class="final-section">
@@ -70,17 +70,21 @@ export default {
   data() {
     return {
       employee: 'Jane',
-      jobTitle: 'Software Engineer'
+      jobTitle: 'Software Engineer',
+      jobLocation: 'San Francisco',
+      expiry: '1/1/2025',
+      companyImg: './src/assets/the_office.jpeg'
     }
   }
 };
 </script>
 
 <style lang="css">
-.logo-section img {
+.logo-section {
   width: 110px;
 }
-.main-content-image img {
+.main-content-image {
+  
   width: 600px;
   border-radius: 8px;
   background-position: center center;
@@ -128,4 +132,5 @@ export default {
   margin-right: 30px;
   width: 20%;
 }
+
 </style>

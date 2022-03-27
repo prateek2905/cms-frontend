@@ -16,38 +16,21 @@
             <div class="expand-all">Expand All</div>
           </div>
         </div>
-        <div class="faq">
-          <div class="faq-container">
-            <div class="faq-label">
-              <div class="faq-label-text">
-                Medical
-                Estimated value: $6,000 
-              </div>
-              <div class="faq-label-icon">
-                <span class="material-icons">
-                  expand_more
-                </span>
-              </div>
-        
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                We cover 100% of the insurance cost for you and 50% for your dependents
-              </div>
-        
-            </div>
-          </div>   
-        </div>
       </div>
     </div>     
 </template>
+
+
 <script>
+
 export default {
     
 }
+
 </script>
 
 <style lang="css">
+
 .offer-letter-background {
   /* border: 5px solid red; */
   background-color: white;
@@ -59,5 +42,9 @@ export default {
   margin: 40px 200px;
   padding: 34px;
 }
+
+
+
+
 
 </style>
