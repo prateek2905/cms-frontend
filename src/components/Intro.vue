@@ -1,0 +1,131 @@
+<template>
+  <div class="offer-letter-background">
+    <div class="offer-letter-content">
+      <div class="logo-section">
+        <img src="/src/assets/dunder_mifflin_logo.jpg" alt="team image" />
+      </div>
+      <div class="main-content">
+        <div class="left-para">
+          <h2>
+            Welcome to the team, <br />
+            {{ employee }}
+          </h2>
+          <p>
+            Congratulations! The team at Dunder Mifflin is very excited to
+            extend this offer to you to join our family. We believe you would be
+            a perfect fit on our team and make a huge impact here. We hope you
+            join us on our mission to make paper more accessible and affordable
+            for all.
+          </p>
+          <div class="offer-details-section">
+            Title: <b>{{ jobTitle }}</b> <br />
+            Location: <b>{{ jobLocation }}</b> <br />
+            Offer Expires: <b>{{ expiry }}</b> <br />
+          </div>
+        </div>
+        <div class="main-content-image">
+          <img src="/src/assets/the_office.jpeg" alt="" />
+        </div>
+      </div>
+      <div class="final-section">
+        <div class="base-salary final-section-blocks">
+          <div class="final-section-heading">Base Salary</div>
+          <div class="final-section-value" style="color: #44b369">$100,000</div>
+          <div class="final-section-description">Your annual Salary</div>
+        </div>
+        <div class="equity final-section-blocks">
+          <div class="final-section-heading">Equity</div>
+          <div class="final-section-value" style="color: #f1a628">100,000</div>
+          <div class="final-section-description">
+            Options earned over 4 years
+          </div>
+        </div>
+        <div class="sign-on-bonus final-section-blocks">
+          <div class="final-section-heading">Sign on Bonus</div>
+          <div class="final-section-value" style="color: #6bbdd4">10,000</div>
+          <div class="final-section-description">For joining us</div>
+        </div>
+        <div class="target-bonus final-section-blocks">
+          <div class="final-section-heading">Target Bonus</div>
+          <div class="final-section-value" style="color: #4e849e">10%</div>
+          <div class="final-section-description">
+            If you hit your performance target
+          </div>
+        </div>
+        <div class="benefits final-section-blocks">
+          <div class="final-section-heading">Benefits</div>
+          <div class="final-section-value" style="color: #956ffa">$20,400</div>
+          <div class="final-section-description">
+            Company's estimated annual contribution
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Second card -->
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      employee: 'Jane',
+      jobTitle: 'Software Engineer'
+    }
+  }
+};
+</script>
+
+<style lang="css">
+.logo-section img {
+  width: 110px;
+}
+.main-content-image img {
+  width: 600px;
+  border-radius: 8px;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: 0 1px 2px #0000000d, 0 4px 8px #0000000d;
+}
+.offer-letter-background {
+  /* border: 5px solid red; */
+  background-color: white;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  margin: 40px 200px;
+  padding: 34px;
+}
+.main-content {
+  display: flex;
+}
+.main-content .left-para {
+  margin-right: 45px;
+}
+.main-content .left-para h2 {
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+.main-content .offer-details-section {
+  margin-top: 52px;
+}
+.final-section {
+  margin: 58px 25px;
+  display: flex;
+}
+.final-section .final-section-heading,
+.final-section .final-section-description {
+  opacity: 0.5;
+}
+.final-section .final-section-value {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 3rem;
+}
+.final-section-blocks {
+  margin-right: 30px;
+  width: 20%;
+}
+</style>
