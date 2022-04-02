@@ -73,6 +73,7 @@ export default {
       jobTitle: 'Software Engineer',
       jobLocation: 'San Francisco',
       expiry: '1/1/2025',
+      logoImg: '/src/assets/dunder_mifflin_logo.png',
       companyImg: './src/assets/the_office.jpeg'
     }
   }
