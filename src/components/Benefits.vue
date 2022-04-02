@@ -22,31 +22,38 @@
           <div class="expand-all">Expand All</div>
         </div>
         <div class="bottom-section">
+          <ul id="dropdown">
+            <div v-for="item in items" :key="item.message">
+              
+              <div class="faq">
+                <div class="faq-container">
+                  <div class="faq-label">
+                    <div class="faq-label-text">
+                      {{ item.message }}
+                      <div class="faq-value">
+                        Estimated value: {{ item.value }}
+                      </div>  
+                    </div>
+                    <div class="faq-label-icon">
+                      <span class="material-icons">
+                      expand_more
+                      </span>
+                    </div>
+                  </div>
+              
+                  <div class="faq-answer">
+                    <div class="faq-answer-content">
+                    {{ item.answer }}
+                    </div>
+                  </div>
 
-          <div class="faq">
-          <div class="faq-container">
-            <div class="faq-label">
-              <div class="faq-label-text">
-                Medical
-                <div class="value">
-                Estimated value: {{ medicalVal }}
-                </div>  
-              </div>
-              <div class="faq-label-icon">
-                <span class="material-icons">
-                  expand_more
-                </span>
-              </div>
-        
-            </div>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                We cover 100% of the insurance cost for you and 50% for your dependents
+                </div>   
               </div>
             </div>
-          </div>   
+          </ul>
         </div>
-
+        <div class="last-line">
+          The benefits listed above are estimates only, and subject to change at the company's discretion.
         </div>
       </div>
     </div>
@@ -56,11 +63,31 @@
 <script>
 
 export default {
+  el: '#dropdown',
     data(){
       return{
         counter: 0,
         contribution: 20400,
-        medicalVal: 6000
+        medicalVal: 6000,
+        items: [
+          { message: 'Medical',
+            answer: 'We cover 100% of the insurance cost for you and 50% for your dependents',
+            value: 'medicalVal' },
+          { message: 'Dental',
+            answer: 'We cover 100% of the insurance cost for you and 50% for your dependents' },
+          { message: 'Vision',
+            answer: 'We cover 100% of the insurance cost for you and 50% for your dependents' },
+          { message: 'Free Lunches',
+            answer: 'We offer daily lunches and snacks in the office' },
+          { message: 'Unlimited PTO',
+            answer:'Dunder Mifflin offers unlimited vacation. Feel free to take the time off you need.' },
+          { message: '401k',
+            answer: 'We offer 401k matching with our partner Human Interest and will match up to 4% of your base salary.' },
+          { message: 'Dog friendly office',
+            answer: 'We love our office dogs! Bring your fur baby to work and join our group of office dogs at Dunder Mifflin!' },
+          { message: 'Free paper',
+            answer: 'As an employee at Dunder Mifflin, you will never have to worry about buying paper for your printer ever again - it is all on us!' },
+        ]
       }
     },
     methods: {
