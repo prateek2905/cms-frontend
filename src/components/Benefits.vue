@@ -19,7 +19,7 @@
               Company's estimated annual contribution
             </div>
           </div>
-          <div class="expand-all">Expand All</div>
+          <button class="expand-all">Expand All</button>
         </div>
         <div class="bottom-section">
           <ul id="dropdown">
@@ -30,8 +30,8 @@
                   <div class="faq-label">
                     <div class="faq-label-text">
                       {{ item.message }}
-                      <div class="faq-value">
-                        Estimated value: {{ item.value }}
+                      <div v-if="item.value > 0" class="faq-value">
+                        Estimated value: ${{ item.value }}
                       </div>  
                     </div>
                     <div class="faq-label-icon">
@@ -68,25 +68,29 @@ export default {
       return{
         counter: 0,
         contribution: 20400,
-        medicalVal: 6000,
         items: [
           { message: 'Medical',
             answer: 'We cover 100% of the insurance cost for you and 50% for your dependents',
-            value: 'medicalVal' },
+            value: 6000 },
           { message: 'Dental',
-            answer: 'We cover 100% of the insurance cost for you and 50% for your dependents' },
+            answer: 'We cover 100% of the insurance cost for you and 50% for your dependents',
+            value: 400 },
           { message: 'Vision',
-            answer: 'We cover 100% of the insurance cost for you and 50% for your dependents' },
+            answer: 'We cover 100% of the insurance cost for you and 50% for your dependents',
+            value: 400 },
           { message: 'Free Lunches',
-            answer: 'We offer daily lunches and snacks in the office' },
+            answer: 'We offer daily lunches and snacks in the office',
+            value: 3500 },
           { message: 'Unlimited PTO',
             answer:'Dunder Mifflin offers unlimited vacation. Feel free to take the time off you need.' },
           { message: '401k',
-            answer: 'We offer 401k matching with our partner Human Interest and will match up to 4% of your base salary.' },
+            answer: 'We offer 401k matching with our partner Human Interest and will match up to 4% of your base salary.',
+            value: 10000 },
           { message: 'Dog friendly office',
             answer: 'We love our office dogs! Bring your fur baby to work and join our group of office dogs at Dunder Mifflin!' },
           { message: 'Free paper',
-            answer: 'As an employee at Dunder Mifflin, you will never have to worry about buying paper for your printer ever again - it is all on us!' },
+            answer: 'As an employee at Dunder Mifflin, you will never have to worry about buying paper for your printer ever again - it is all on us!',
+            value: 100 },
         ]
       }
     },
@@ -94,12 +98,17 @@ export default {
       increment(){
         this.counter++;
         this.contribution += 3400;
-        this.medicalVal += 3000;
+        this.items[0].value += 3000;
+        this.items[1].value += 200;
+        this.items[2].value += 200;
       },
       decrement(){
         this.counter--;
         this.contribution -= 3400;
         this.medicalVal -= 3000;
+        this.items[0].value -= 3000;
+        this.items[1].value -= 200;
+        this.items[2].value -= 200;
       }
     }
 }

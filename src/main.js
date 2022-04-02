@@ -17,7 +17,11 @@ faqLabel.forEach(item=>item.onclick=()=>{
    let icons=labelIcon.lastElementChild;
    icons.classList.toggle('rotate');
  
-   
-})
+   })
+
+
+
+
+
 
 
