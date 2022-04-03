@@ -22,7 +22,7 @@
         <button class="expand-all">Expand All</button>
       <div class="main-content-benefit">
         <div class="bottom-section">
-          <ul id="dropdown">
+          <div id="dropdown">
             <div v-for="item in items" :key="item.message">
               
               <div class="faq">
@@ -50,7 +50,7 @@
                 </div>   
               </div>
             </div>
-          </ul>
+          </div>
         </div>
         <div class="last-line">
           The benefits listed above are estimates only, and subject to change at the company's discretion.
@@ -126,6 +126,7 @@ export default {
   margin: 40px 200px;
   padding: 34px;
 }
+
 .count-button {
   border-radius: 50%;
   width: 25px;
@@ -134,8 +135,8 @@ export default {
 }
 
 .faq {
-  padding: 20px ;
-  width: 60%;
+  padding: 4px ;
+  width: 80%;
   min-width:450px;
   margin: auto;
   position: relative;
