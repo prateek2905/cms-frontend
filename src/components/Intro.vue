@@ -2,7 +2,7 @@
   <div class="offer-letter-background">
     <div class="offer-letter-content">
       <div class="logo-section">
-        <img src="/src/assets/dunder_mifflin_logo.jpg" alt="team image" />
+        <img :src="logo_image" alt="team image" />
       </div>
       <div class="main-content">
         <div class="left-para">
@@ -73,7 +73,8 @@ export default {
       jobTitle: 'Software Engineer',
       jobLocation: 'San Francisco',
       expiry: '1/1/2025',
-      companyImg: './src/assets/the_office.jpeg'
+      companyImg: 'src/assets/the_office.jpeg',
+      logo_image: 'src/assets/dunder_mifflin_logo.jpg'
     }
   }
 };
