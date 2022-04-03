@@ -28,6 +28,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+<<<<<<< HEAD
 .offer-letter-background {
   /* border: 5px solid red; */
   background-color: white;
@@ -38,5 +39,9 @@ export default {
   -o-border-radius: 15px;
   margin: 40px 80px;
   padding: 34px;
+=======
+body {
+  background-color: #2c3e50;
+>>>>>>> 233c53840d4d9bfaa11456a637b498661aa2d5da
 }
 </style>
