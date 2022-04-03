@@ -1,11 +1,10 @@
 <template>
   <div class="offer-letter-background">
     <div class="offer-letter-content">
-      <div class="main-content">
+        <h2>Benefits</h2>
         <div class="top-section">
-          <h2>Benefits</h2>
           <div v-if="counter >= 0" class="dependents">
-            for you and
+            For you and
             <button class="count-button" :disabled="counter < 1" @click="decrement">-</button>
             <div class="counter">{{ counter }}</div>
             <button class="count-button" :disabled="counter > 4" @click="increment">+</button>
@@ -13,14 +12,15 @@
           </div>
           <div class="contribution">
             <div class="contribution-value">
-              <h1>{{ contribution }}</h1>
+              <h1>${{ contribution }}</h1>
             </div>
             <div class="contribution-description">
-              Company's estimated annual contribution
+              <b>Company's estimated annual contribution</b>
             </div>
           </div>
-          <button class="expand-all">Expand All</button>
         </div>
+        <button class="expand-all">Expand All</button>
+      <div class="main-content-benefit">
         <div class="bottom-section">
           <ul id="dropdown">
             <div v-for="item in items" :key="item.message">
@@ -29,9 +29,9 @@
                 <div class="faq-container">
                   <div class="faq-label">
                     <div class="faq-label-text">
-                      {{ item.message }}
+                      <b>{{ item.message }}</b>
                       <div v-if="item.value > 0" class="faq-value">
-                        Estimated value: ${{ item.value }}
+                        Estimated value: <b> ${{ item.value }}</b>
                       </div>  
                     </div>
                     <div class="faq-label-icon">
@@ -130,7 +130,7 @@ export default {
   border-radius: 50%;
   width: 25px;
   height: 25px;
-  border-color: aqua;
+  border-color: #956ffa;
 }
 
 .faq {
@@ -152,24 +152,28 @@ export default {
   cursor: pointer;
   width: 100%;
   padding: 10px 25px;
-  display: flex;
   justify-content: space-between;
   align-items: center;
 
 border-radius: 19px;
-background: #d0edf0;
-box-shadow:  5px 5px 10px #b7d1d3,
-             -5px -5px 10px #e9ffff;
+/* background: #d0edf0; */
+/* box-shadow:  5px 5px 10px #b7d1d3,
+             -5px -5px 10px #e9ffff; */
+border: 0.5px solid gray;
 }
-
+.counter {
+  margin: 0 5px 0 5px;
+  font-size: 20px;
+  color: #956ffa;
+}
 .faq-label-text {
   color: #365A5E;
-
+  /* display: flex; */
 }
 
 .faq-label-icon {
   padding: 2px 3px;
-  background: #d0edf0;
+  /* background: #d0edf0; */
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -197,6 +201,9 @@ box-shadow:  5px 5px 10px #b7d1d3,
   
 
 }
+.faq-value {
+  opacity: .5;
+}
 .active {
 
   background: #FFFFFF;
@@ -209,5 +216,35 @@ box-shadow:  5px 5px 10px #b7d1d3,
 .rotate{
   transform: rotate(180deg)
 }
-
+.offer-letter-content h2 {
+  text-align: start;
+  font-size: 25px;
+  font-weight: 600;
+}
+.top-section {
+  /* border: 2px solid red; */
+  /* padding: 100px; */
+  display: flex;
+  margin-top: 15px;
+}
+.dependents {
+  margin-right: 50%;
+  display: -webkit-inline-box;
+}
+.contribution {
+  margin-top: -50px;
+}
+.contribution-value h1 {
+    color: #956ffa;
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: right;
+}
+.main-content-benefit {
+  display: inline;
+}
+.last-line {
+  opacity: .5;
+}
 </style>
