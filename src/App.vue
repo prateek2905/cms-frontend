@@ -28,4 +28,15 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+.offer-letter-background {
+  /* border: 5px solid red; */
+  background-color: white;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  margin: 40px 80px;
+  padding: 34px;
+}
 </style>

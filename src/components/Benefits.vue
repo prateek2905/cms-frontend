@@ -115,8 +115,7 @@ export default {
 </script>
 
 <style lang="css">
-.offer-letter-background {
-  /* border: 5px solid red; */
+/* .offer-letter-background {
   background-color: white;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -125,7 +124,7 @@ export default {
   -o-border-radius: 15px;
   margin: 40px 200px;
   padding: 34px;
-}
+} */
 .count-button {
   border-radius: 50%;
   width: 25px;
@@ -135,9 +134,9 @@ export default {
 
 .faq {
   padding: 20px ;
-  width: 60%;
+  width: 100%;
   min-width:450px;
-  margin: auto;
+  /* margin: auto; */
   position: relative;
   height: auto;
 }
