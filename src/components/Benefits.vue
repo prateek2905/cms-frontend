@@ -42,7 +42,7 @@
                 <div class="faq-label">
                   <div class="faq-label-text">
                     <div class="faq-message">
-                      <b>{{ item.message }}</b>
+                      <span class="material-icons"> {{ item.icon }} </span>    <b>{{ item.message }}</b>                     
                     </div>
 
                     <div v-if="item.value > 0" class="faq-value">
@@ -84,45 +84,53 @@ export default {
       contribution: 20400,
       items: [
         {
+          icon: "health_and_safety",
           message: "Medical",
           answer:
             "We cover 100% of the insurance cost for you and 50% for your dependents",
           value: 6000,
         },
         {
+          icon: "health_and_safety",
           message: "Dental",
           answer:
             "We cover 100% of the insurance cost for you and 50% for your dependents",
           value: 400,
         },
         {
+          icon: "visibility",
           message: "Vision",
           answer:
             "We cover 100% of the insurance cost for you and 50% for your dependents",
           value: 400,
         },
         {
+          icon: "restaurant",
           message: "Free Lunches",
           answer: "We offer daily lunches and snacks in the office",
           value: 3500,
         },
         {
+          icon: "landscape",
           message: "Unlimited PTO",
           answer:
             "Dunder Mifflin offers unlimited vacation. Feel free to take the time off you need.",
         },
         {
+          icon: "paid",
           message: "401k",
           answer:
             "We offer 401k matching with our partner Human Interest and will match up to 4% of your base salary.",
           value: 10000,
         },
         {
+          icon: "pets",
           message: "Dog friendly office",
           answer:
             "We love our office dogs! Bring your fur baby to work and join our group of office dogs at Dunder Mifflin!",
         },
         {
+          icon: "receipt",
           message: "Free paper",
           answer:
             "As an employee at Dunder Mifflin, you will never have to worry about buying paper for your printer ever again - it is all on us!",
@@ -210,7 +218,8 @@ export default {
   align-items: center;
 }
 .faq-message {
-  text-align: left;
+  display: flex;
+  align-items: center;
 }
 .faq-label-icon {
   padding: 2px 3px;
@@ -224,6 +233,8 @@ export default {
 .material-icons {
   color: #365a5e;
   transition: 0.3s ease;
+  padding: 10px;
+  padding-right: 20px;
 }
 
 .faq-answer {
