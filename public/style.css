@@ -6,7 +6,7 @@
   font-size: 16px;
 }
 body {
-  background-color: #021823;
+  background-color: rgb(46, 122, 167);
 }
 .logo-section img {
   width: 110px;
@@ -59,3 +59,5 @@ body {
   margin-right: 30px;
   width: 20%;
 }
+
+

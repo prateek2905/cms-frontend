@@ -28,6 +28,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+<<<<<<< HEAD
 .offer-letter-background {
   /* border: 5px solid red; */
   background-color: white;
@@ -42,4 +43,6 @@ export default {
 body {
   background-color: #2c3e50;
 }
+=======
+>>>>>>> parent of 7fc2ce5 (Editted Intro.vue stylesheet)
 </style>
