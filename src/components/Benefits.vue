@@ -44,16 +44,16 @@
                     <div class="faq-message">
                       <span class="material-icons"> {{ item.icon }} </span>    <b>{{ item.message }}</b>                     
                     </div>
-
+                    <div class="right-items">
                     <div v-if="item.value > 0" class="faq-value">
                       Estimated value: <b> ${{ item.value }}</b>
                     </div>
 
-                    <div class=" faq-label-icon">
+                    <div class="faq-label-icon">
                       <span class="material-icons"> expand_more </span>
                     </div>
-                  </div>
-                  
+                    </div>
+                  </div> 
                 </div>
 
                 <div class="faq-answer">
@@ -76,6 +76,7 @@
 </template>
 
 <script>
+
 export default {
   el: "#dropdown",
   data() {
@@ -157,9 +158,11 @@ export default {
     },
   },
 };
+
 </script>
 
 <style lang="css">
+
 .offer-letter-background {
   /* border: 5px solid red; */
   background-color: white;
@@ -177,7 +180,11 @@ export default {
   height: 25px;
   border-color: #956ffa;
 }
+.right-items{
+  display: flex;
 
+  align-items: center;
+}
 .faq {
   padding: 4px;
   width: 80%;
@@ -228,17 +235,18 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  transition: 0.3s ease;
 }
 
 .material-icons {
   color: #365a5e;
   transition: 0.3s ease;
-  padding: 10px;
-  padding-right: 20px;
+  padding: 10px 20px 10px 20px;
+  
 }
 
 .faq-answer {
-  transition: 0.3s ease;
+  transition: 0.3s ease-out;
   margin-top: 15px;
   height: 0;
   border-radius: 6px;
@@ -293,4 +301,7 @@ export default {
 .last-line {
   opacity: 0.5;
 }
+
+
+
 </style>
