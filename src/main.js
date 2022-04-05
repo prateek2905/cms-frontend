@@ -15,9 +15,14 @@ faqLabel.forEach(item=>item.onclick=()=>{
    
    let labelIcon=item.lastElementChild;
    let icons=labelIcon.lastElementChild;
-   icons.classList.toggle('rotate');
+   let rotation=icons.lastElementChild;
+   rotation.classList.toggle('rotate');
  
    })
+
+
+
+
 
 
 
