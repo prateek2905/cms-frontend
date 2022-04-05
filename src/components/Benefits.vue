@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <button class="expand-all">Expand All</button>
+      <div class="expand-all">Expand all</div>
       <div class="main-content-benefit">
         <div class="bottom-section">
           <div id="dropdown" v-for="item in items" :key="item.message">
@@ -187,7 +187,7 @@ export default {
 }
 .faq {
   padding: 4px;
-  width: 80%;
+  width: 100%;
   min-width: 450px;
   margin: auto;
   position: relative;
@@ -206,11 +206,11 @@ export default {
   justify-content: space-between;
   align-items: center;
 
-  border-radius: 19px;
+  border-radius: 8px;
   /* background: #d0edf0; */
   /* box-shadow:  5px 5px 10px #b7d1d3,
              -5px -5px 10px #e9ffff; */
-  border: 0.5px solid gray;
+  border: 1px solid #ddd;
 }
 .counter {
   margin: 0 5px 0 5px;
@@ -287,6 +287,10 @@ export default {
 }
 .contribution {
   margin-top: -50px;
+  text-align: right;
+  max-width: 50%;
+  display: block;
+  flex: 0 0 37%;
 }
 .contribution-value h1 {
   color: #956ffa;
@@ -302,6 +306,15 @@ export default {
   opacity: 0.5;
 }
 
-
+.expand-all {
+  width: 100%;
+  font-size: 10px;
+  margin-bottom: 12px;
+  margin-top: 30px;
+  color: #956ffa;
+  cursor: pointer;
+  font-weight: 700;
+  text-align: right;
+}
 
 </style>
