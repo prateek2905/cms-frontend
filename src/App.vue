@@ -3,18 +3,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <Intro />
     <Benefits />
+    <About />
   </div>
 </template>
 
 <script>
 import Intro from "./components/Intro.vue";
 import Benefits from "./components/Benefits.vue";
+import About from './components/About.vue';
+
 
 export default {
   name: "App",
   components: {
     Intro,
     Benefits,
+    About,
   },
 };
 </script>

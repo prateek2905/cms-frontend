@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="expand-all">Expand all</div>
+      <div class="expand-all" v-on:click="expandAll()">Expand all</div>
       <div class="main-content-benefit">
         <div class="bottom-section">
           <div id="dropdown" v-for="item in items" :key="item.message">
@@ -42,16 +42,17 @@
                 <div class="faq-label">
                   <div class="faq-label-text">
                     <div class="faq-message">
-                      <span class="material-icons"> {{ item.icon }} </span>    <b>{{ item.message }}</b>                     
+                      <span class="material-icons"> {{ item.icon }} </span>   
+                      <b>{{ item.message }}</b>                     
                     </div>
                     <div class="right-items">
-                    <div v-if="item.value > 0" class="faq-value">
-                      Estimated value: <b> ${{ item.value }}</b>
-                    </div>
+                      <div v-if="item.value > 0" class="faq-value">
+                        Estimated value: <b> ${{ item.value }}</b>
+                      </div>
 
-                    <div class="faq-label-icon">
-                      <span class="material-icons"> expand_more </span>
-                    </div>
+                      <div class="faq-label-icon">
+                        <span class="material-icons"> expand_more </span>
+                      </div>
                     </div>
                   </div> 
                 </div>
