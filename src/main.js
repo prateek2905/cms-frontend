@@ -20,26 +20,15 @@ faqLabel.forEach(item => item.onclick = () => {
 
 })
 
-// const readMoreButton = document.querySelector('.read-more-button');
-// const text = document.querySelector('.moreText');
-// readMoreButton.addEventListener('click', () => {
-//   text.classList.toggle('show-more');
-//   if (readMoreButton.innerText === 'Read More') {
-//     readMoreButton.innerText = 'Read Less';
-//   } else {
-//     readMoreButton.innerText = 'Read More';
-//   }
-// })
-
-const parentContainer = document.querySelector('.read-more-container');
-parentContainer.addEventListener('click', event => {
-  const current = event.target;
-  const isReadMoreBtn = current.className.includes('read-more-btn');
-  if (!isReadMoreBtn) return;
-  const currentText = event.target.parentNode.querySelector('.read-more-text');
-  currentText.classList.toggle('read-more-text--show');
-  current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
+const readMoreButton = document.querySelector('.read-more-button');
+const text = document.querySelector('.moreText');
+const dots = document.querySelector('.dots');
+readMoreButton.addEventListener('click', () => {
+  text.classList.toggle('showMore');
+  if (readMoreButton.innerHTML === 'Read More') {
+    readMoreButton.innerHTML = 'Read Less';
+  } else {
+    readMoreButton.innerHTML = 'Read More';
+  }
+  dots.classList.toggle('removeDots');
 })
-
-
-
