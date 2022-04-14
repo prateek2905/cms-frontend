@@ -19,6 +19,7 @@ faqLabel.forEach(item => item.onclick = () => {
   rotation.classList.toggle('rotate');
 
 })
+
 // const readMoreButton = document.querySelector('.read-more-button');
 // const text = document.querySelector('.moreText');
 // readMoreButton.addEventListener('click', () => {
@@ -39,9 +40,6 @@ parentContainer.addEventListener('click', event => {
   currentText.classList.toggle('read-more-text--show');
   current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
 })
-
-
-
 
 
 
