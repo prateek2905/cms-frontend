@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="expand-all" v-on:click="expandAll()">Expand all</div>
+      <button class="expand" id="expandAndCollapse" @click="expandAndCollapse">Expand All</button>
       <div class="main-content-benefit">
         <div class="bottom-section">
           <div id="dropdown" v-for="item in items" :key="item.message">
@@ -84,6 +84,7 @@ export default {
     return {
       counter: 0,
       contribution: 20400,
+      statusToggle: 'false',
       items: [
         {
           icon: "health_and_safety",
@@ -157,6 +158,26 @@ export default {
       this.items[1].value -= 200;
       this.items[2].value -= 200;
     },
+    expandAndCollapse() {
+    
+    let faqAnswer = document.querySelectorAll(".faq-answer");
+    let expandAndCollapseElem = document.getElementById("expandAndCollapse");
+
+
+    if(!this.statusToggle) {
+        this.statusToggle = !this.statusToggle;
+        expandAndCollapseElem.innerHTML = "Collapse All";
+        faqAnswer.forEach((item) => {
+            item.classList.add("active");
+        })
+    } else {
+        this.statusToggle = !this.statusToggle;
+        expandAndCollapseElem.innerHTML = "Expand All";
+        faqAnswer.forEach((item) => {
+            item.classList.remove("active");
+        })
+    }
+}
   },
 };
 
@@ -174,6 +195,9 @@ export default {
   -o-border-radius: 15px;
   margin: 40px 200px;
   padding: 34px;
+}
+.offer-letter-content{
+  padding: 10px;
 }
 .count-button {
   border-radius: 50%;
@@ -307,15 +331,17 @@ export default {
   opacity: 0.5;
 }
 
-.expand-all {
+.expand {
   width: 100%;
-  font-size: 10px;
+  font-size: 15px;
   margin-bottom: 12px;
   margin-top: 30px;
   color: #956ffa;
   cursor: pointer;
   font-weight: 700;
   text-align: right;
+  border: none;
+  background: white;
 }
 
 </style>
