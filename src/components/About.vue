@@ -29,7 +29,7 @@
                 <div class="details-1 details">
                     <div class="headings">Website</div>
                     <div class="texts">
-                        <a href="https://www.peacocktv.com/stream-tv/the-office" target="_blank">https://www.peacocktv.com/stream-tv/the-office</a>
+                        <a v-bind:href="Website" target="_blank">{{Website_Content}}</a>
                     </div>
                 </div>
                 <div class="details-2 details">
@@ -38,23 +38,23 @@
                 </div>
                 <div class="details-3 details">
                     <div class="headings">Company Size</div>
-                    <div class="texts">50-99</div>
+                    <div class="texts">{{Company_Size}}</div>
                 </div>
                 <div class="details-4 details">
                     <div class="headings">Total Funding</div>
-                    <div class="texts">$20M</div>
+                    <div class="texts">${{Total_Funding}}M</div>
                 </div>
                 <div class="details-5 details">
                     <div class="headings">Last Funding Type</div>
-                    <div class="texts">Series A</div>
+                    <div class="texts">{{Last_Funding_Type}}</div>
                 </div>
                 <div class="details-6 details">
                     <div class="headings">Investors</div>
                     <div class="texts">
-                        <a href="https://theoffice.fandom.com/wiki/Vance_Refrigeration" target="_blank">Vance Refrigeration,</a>
-                        <a href="https://theoffice.fandom.com/wiki/The_Michael_Scott_Paper_Company" target="_blank">The Michael Scott Paper Company,</a>
-                        <a href="https://theoffice.fandom.com/wiki/Sabre_(company)" target="_blank">Sabre International,</a>
-                        <a href="https://theoffice.fandom.com/wiki/Athlead" target="_blank">Athleap</a>
+                        <a v-bind:href="Vance_Refrigeration" target="_blank">Vance Refrigeration,</a>
+                        <a v-bind:href="The_Michael_Scott_Paper_Company" target="_blank">The Michael Scott Paper Company,</a>
+                        <a v-bind:href="Sabre_International" target="_blank">Sabre International,</a>
+                        <a v-bind:href="Athleap" target="_blank">Athleap</a>
                     </div>
                 </div>
                 <div class="details-7 details">
@@ -77,7 +77,17 @@
 export default {
     data() {
         return{
+        Website: 'https://www.peacocktv.com/stream-tv/the-office',
+        Website_Content: 'https://www.peacocktv.com/stream-tv/the-office',
         headquarter: 'Scranton, PA',
+        Company_Size: '50-99', 
+        Total_Funding: 20,
+        Last_Funding_Type: 'Series A',
+        Vance_Refrigeration: 'https://theoffice.fandom.com/wiki/Vance_Refrigeration',
+        The_Michael_Scott_Paper_Company: 'https://theoffice.fandom.com/wiki/The_Michael_Scott_Paper_Company',
+        Sabre_International: 'https://theoffice.fandom.com/wiki/Sabre_(company)',
+        Athleap: 'https://theoffice.fandom.com/wiki/Athlead',
+
         items: [
             {
                 heading: 'People First',
@@ -240,7 +250,22 @@ export default {
 .details .texts {
     word-break: break-word;
 }
+.scroll-container {
+    display: flex;
+    margin-bottom: 1.8rem;
+}
 .scroll-content{
     border: 1px solid #ddd;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-right: .5rem;
+    border-radius: 5px;
+}
+.scroll-content  {
+    padding: 20px;
+    text-align: left;
+}
+.scroll-content h3 {
+    margin-bottom: 1rem;
 }
 </style>
