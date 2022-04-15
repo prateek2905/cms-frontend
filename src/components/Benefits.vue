@@ -162,17 +162,20 @@ export default {
     
     let faqAnswer = document.querySelectorAll(".faq-answer");
     let expandAndCollapseElem = document.getElementById("expandAndCollapse");
-
+    // let faqMessage = document.querySelectorAll(".right-items")
+    // let icon = faqMessage.lastElementChild;
 
     if(!this.statusToggle) {
         this.statusToggle = !this.statusToggle;
         expandAndCollapseElem.innerHTML = "Collapse All";
+        // icon.classList.toggle("rotate");
         faqAnswer.forEach((item) => {
             item.classList.add("active");
         })
     } else {
         this.statusToggle = !this.statusToggle;
         expandAndCollapseElem.innerHTML = "Expand All";
+        // icon.classList.toggle("rotate");
         faqAnswer.forEach((item) => {
             item.classList.remove("active");
         })
@@ -185,17 +188,7 @@ export default {
 
 <style lang="css">
 
-.offer-letter-background {
-  /* border: 5px solid red; */
-  background-color: white;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  margin: 40px 200px;
-  padding: 34px;
-}
+
 .offer-letter-content{
   padding: 10px;
 }
@@ -271,7 +264,7 @@ export default {
 }
 
 .faq-answer {
-  transition: 0.3s ease-out;
+  transition: 0.4s ease-out;
   margin-top: 15px;
   height: 0;
   border-radius: 6px;
