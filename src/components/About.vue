@@ -29,37 +29,25 @@
                 <div class="details-1 details">
                     <div class="headings">Website</div>
                     <div class="texts">
-                        <a v-bind:href="Website" target="_blank">{{Website_Content}}</a>
+                        <a :href="Website" target="_blank">{{ Website_Content }}</a>
                     </div>
                 </div>
-                <div class="details-2 details">
-                    <div class="headings">Headquarters</div>
-                    <div class="texts">{{ headquarter }}</div>
-                </div>
-                <div class="details-3 details">
-                    <div class="headings">Company Size</div>
-                    <div class="texts">{{Company_Size}}</div>
-                </div>
-                <div class="details-4 details">
-                    <div class="headings">Total Funding</div>
-                    <div class="texts">${{Total_Funding}}M</div>
-                </div>
-                <div class="details-5 details">
-                    <div class="headings">Last Funding Type</div>
-                    <div class="texts">{{Last_Funding_Type}}</div>
+                <div class="details-2 details" v-for="detail in details" :key="detail.message">
+                    <div class="headings">{{ detail.heading }}</div>
+                    <div class="texts">{{ detail.text }}</div>
                 </div>
                 <div class="details-6 details">
                     <div class="headings">Investors</div>
                     <div class="texts">
-                        <a v-bind:href="Vance_Refrigeration" target="_blank">Vance Refrigeration,</a>
-                        <a v-bind:href="The_Michael_Scott_Paper_Company" target="_blank">The Michael Scott Paper Company,</a>
-                        <a v-bind:href="Sabre_International" target="_blank">Sabre International,</a>
-                        <a v-bind:href="Athleap" target="_blank">Athleap</a>
+                        <a :href="Vance_Refrigeration" target="_blank">Vance Refrigeration,</a>
+                        <a :href="The_Michael_Scott_Paper_Company" target="_blank">The Michael Scott Paper Company,</a>
+                        <a :href="Sabre_International" target="_blank">Sabre International,</a>
+                        <a :href="Athleap" target="_blank">Athleap</a>
                     </div>
                 </div>
                 <div class="details-7 details">
                     <div class="headings">Leadership</div>
-                    <div class="texts">David Wallace (CEO), Michael Scott (Regional Manager), Jan Levinson (VP Sales), Jim Halpert (Sales Manager), Pamela Beesly (Head of Communications)</div>
+                    <div class="texts">{{ leadership }}</div>
                 </div>
             </div>
         </div>
@@ -77,16 +65,30 @@
 export default {
     data() {
         return{
-        Website: 'https://www.peacocktv.com/stream-tv/the-office',
         Website_Content: 'https://www.peacocktv.com/stream-tv/the-office',
-        headquarter: 'Scranton, PA',
-        Company_Size: '50-99', 
-        Total_Funding: 20,
-        Last_Funding_Type: 'Series A',
         Vance_Refrigeration: 'https://theoffice.fandom.com/wiki/Vance_Refrigeration',
         The_Michael_Scott_Paper_Company: 'https://theoffice.fandom.com/wiki/The_Michael_Scott_Paper_Company',
         Sabre_International: 'https://theoffice.fandom.com/wiki/Sabre_(company)',
         Athleap: 'https://theoffice.fandom.com/wiki/Athlead',
+        leadership: 'David Wallace (CEO), Michael Scott (Regional Manager), Jan Levinson (VP Sales), Jim Halpert (Sales Manager), Pamela Beesly (Head of Communications)',
+        details: [
+            {
+                heading: 'Headquarters',
+                text: 'Scranton, PA'
+            },
+            {
+                heading: 'Company Size',
+                text: '50-99'
+            },
+            {
+                heading: 'Total Funding',
+                text: '$20M'
+            },
+            {
+                heading: 'Last Funding Type',
+                text: 'Series A'
+            }
+        ],
 
         items: [
             {
@@ -123,17 +125,7 @@ export default {
   background-size: cover;
   box-shadow: 0 1px 2px #0000000d, 0 4px 8px #0000000d;
 }
-.offer-letter-background {
-  /* border: 5px solid red; */
-  background-color: white;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  margin: 40px 200px;
-  padding: 34px;
-}
+
 .offer-letter-content .heading {
     margin-bottom: 2rem;
     font-size: 1.7rem;
@@ -168,6 +160,8 @@ export default {
     outline: none;
     color: #5a40c6;
     margin-bottom: 2rem;
+    background: white;
+    align-self: start;;
 }
 .offer-letter-content button:hover {
     cursor: pointer;
@@ -203,21 +197,6 @@ export default {
     max-width: 25%;
 }
 .details-2 {
-    display: block;
-    flex: 0 0 16.66666667%;
-    max-width: 16.66666667%;
-}
-.details-3 {
-    display: block;
-    flex: 0 0 12.5%;
-    max-width: 12.5%;
-}
-.details-4 {
-    display: block;
-    flex: 0 0 12.5%;
-    max-width: 12.5%;
-}
-.details-5 {
     display: block;
     flex: 0 0 16.66666667%;
     max-width: 16.66666667%;
