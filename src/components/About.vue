@@ -16,6 +16,9 @@
             </div>
             <button class="read-more-button">Read More</button>
         </div>
+        <div class="scroll-container-parent">
+        <button class="button-icon"><span class="material-icons navigate">navigate_before</span></button>
+        <button class="button-icon"><span class="material-icons navigate">navigate_next</span></button>
         <div class="scroll-container">
             <div class="scroll-content" v-for="item in items" :key="item.message">
                 <h3>{{ item.heading }}</h3>
@@ -23,6 +26,7 @@
                     {{ item.para }}
                 </p>
             </div>
+        </div>
         </div>
         <div class="basic-details-container">
             <div class="basic-details">
@@ -54,6 +58,19 @@
         <div class="news-container">
             <div class="news">
                 <h2>In the news</h2>
+            </div>
+            <div class="link-container-holder">
+                <div class="link-container" v-for="item in news" :key="item.page_link">
+                    <a :href="item.page_link" class="news-first-section news-section">
+                        <div class="news-first-container-image">
+                            <img :src="item.image_link" alt="news-first-container-image"/>
+                        </div>
+                        <div class="news-first-container-content">
+                            <p class="header">{{item.header}}</p>
+                            <p class="footer">{{item.footer}}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -106,6 +123,26 @@ export default {
             {
                 heading:'Innovation',
                 para: 'We strive to become the company most known for changing the worldwide poor–quality image of paper products.'
+            }
+        ],
+        news: [
+            {
+                page_link: "https://www.architecturaldigest.com/story/the-office-anniversary-dunder-mifflin-set-design",
+                image_link: "https://i.imgur.com/3QYV07u.jpg",
+                header: 'How the Remarkably Unremarkable World of Dunder Mifflin Was Built for "The Office" | Architectural Digest',
+                footer: 'architecturaldigest.com'
+            },
+            {
+                page_link: "https://screenrant.com/the-office-ways-dunder-mifflin-great-place-work/",
+                image_link: "https://i.imgur.com/QEw0WWq.jpg",
+                header: "The Office: 5 Ways Dunder Mifflin Is A Great Place To Work (& 5 Ways It's The Worst)",
+                footer: 'screenrant.com'
+            },
+            {
+                page_link: "https://www.officequotes.net/creedThoughts.php#ct01",
+                image_link: "https://i.imgur.com/VDfscXO.jpg",
+                header: 'Creed Thoughts #1 - OfficeQuotes.net',
+                footer: 'officequotes.net'
             }
         ]
         }
@@ -246,5 +283,20 @@ export default {
 }
 .scroll-content h3 {
     margin-bottom: 1rem;
+}
+.navigate {
+    border: 1px solid #ddd;
+} 
+.link-container-holder {
+    display: block;
+    width: 1004px;
+}
+.link-container {
+    display: flex;
+    /* width: 1004px; */
+}
+.news-section {
+    width: 33.3333%;
+    display: inline-block;
 }
 </style>

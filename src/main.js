@@ -32,3 +32,6 @@ readMoreButton.addEventListener('click', () => {
   }
   dots.classList.toggle('removeDots');
 })
+
+
+// let currentScrollPosition = 0;

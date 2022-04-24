@@ -6,10 +6,10 @@
       </div>
       <div class="main-content">
         <div class="left-para">
-          <h2>
+          <div class="introTitle">
             Welcome to the team, <br />
-            {{ employee }}
-          </h2>
+            {{ employee }}.
+          </div>
           <p>
             Congratulations! The team at Dunder Mifflin is very excited to
             extend this offer to you to join our family. We believe you would be
@@ -91,6 +91,12 @@ export default {
   background-position: center center;
   background-size: cover;
   box-shadow: 0 1px 2px #0000000d, 0 4px 8px #0000000d;
+}
+.introTitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+    margin-bottom: 2rem;
 }
 .offer-letter-background {
   /* border: 5px solid red; */
