@@ -62,8 +62,8 @@
             <div class="link-container-holder">
                 <div class="link-container" v-for="item in news" :key="item.page_link">
                     <a :href="item.page_link" class="news-first-section news-section">
-                        <div class="news-first-container-image">
-                            <img :src="item.image_link" alt="news-first-container-image"/>
+                        <div>
+                            <img class="news-first-container-image" :src="item.image_link" alt="news-first-container-image"/>
                         </div>
                         <div class="news-first-container-content">
                             <p class="header">{{item.header}}</p>
@@ -75,7 +75,7 @@
         </div>
     </div>
   </div>
-  <!-- Second card -->
+  
 </template>
 
 <script>
@@ -288,15 +288,21 @@ export default {
     border: 1px solid #ddd;
 } 
 .link-container-holder {
-    display: block;
+    display: flex;
+    flex-direction: row;
     width: 1004px;
 }
 .link-container {
     display: flex;
+    flex-direction: row;
     /* width: 1004px; */
 }
 .news-section {
-    width: 33.3333%;
+    width: 40%;
     display: inline-block;
+}
+.news-first-container-image{
+    border-radius: 15px;
+    width: 100%;
 }
 </style>
