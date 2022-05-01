@@ -16,7 +16,7 @@
             </div>
             <button class="read-more-button">Read More</button>
         </div>
-        <div class="scroll-container-parent">
+        <!-- <div class="scroll-container-parent">
         <button class="button-icon"><span class="material-icons navigate">navigate_before</span></button>
         <button class="button-icon"><span class="material-icons navigate">navigate_next</span></button>
         <div class="scroll-container">
@@ -27,7 +27,20 @@
                 </p>
             </div>
         </div>
-        </div>
+        </div> -->
+        <carousel 
+            @next="next"
+            @prev="prev">
+            
+            <carousel-slide v-for="(slide, index) in slides"
+                            :key="slide" 
+                            :index="index"
+                            :visibleSlides="visibleSlides"
+            >
+                <h3>{{slide.heading}}</h3>
+                <p>{{slide.para}}</p>
+            </carousel-slide>
+        </carousel>
         <div class="basic-details-container">
             <div class="basic-details">
                 <div class="details-1 details">
@@ -79,6 +92,8 @@
 </template>
 
 <script>
+import Carousel from './Carousel.vue';
+import CarouselSlide from './CarouselSlide.vue';
 export default {
     data() {
         return{
@@ -107,7 +122,7 @@ export default {
             }
         ],
 
-        items: [
+        slides: [
             {
                 heading: 'People First',
                 para: 'We provide our Customers with the highest standard of integrity and quality, to enable them to develop long-term professional relationships with our employees and staff.'
@@ -144,8 +159,34 @@ export default {
                 header: 'Creed Thoughts #1 - OfficeQuotes.net',
                 footer: 'officequotes.net'
             }
-        ]
+        ],
+        visibleSlides: 0
         }
+    },
+    components: {
+        Carousel,
+        CarouselSlide
+    },
+    computed: {
+        slidesLength() {
+            return this.slides.length;
+        }
+    },
+    methods: {
+        next() {
+            if(this.visibleSlides >= this.slidesLength-1) {
+                this.visibleSlides = 0;
+            } else {
+                this.visibleSlides++;
+            }
+        },
+        prev() {
+            if(this.visibleSlides <= 0) {
+                this.visibleSlides = this.slidesLength-1;
+            } else {
+                this.visibleSlides--;
+            }
+        } 
     }
 };
 </script>
@@ -192,16 +233,18 @@ export default {
 .offer-letter-content .dots {
     display: inline;
 }
-.offer-letter-content button {
+.offer-letter-content .read-more-button {
     border: none;
     outline: none;
     color: #5a40c6;
     margin-bottom: 2rem;
     background: white;
-    align-self: start;;
+    align-self: start;
 }
-.offer-letter-content button:hover {
+.offer-letter-content .read-more-button:hover {
     cursor: pointer;
+    /* background-color: #a43d3d; */
+    /* border: 1px solid red; */
     color: #a799e2;
     transition: all .3s cubic-bezier(.645,.045,.355,1);
 }
@@ -304,5 +347,38 @@ export default {
 .news-first-container-image{
     border-radius: 15px;
     width: 100%;
+}
+.next {
+    display: block;
+}
+.carousel {
+    display: flex;
+    margin-bottom: 1.8rem;
+}
+.carousel-slide{
+    border: 1px solid #ddd;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin-right: .5rem;
+    border-radius: 5px;
+}
+.carousel-slide  {
+    padding: 20px;
+    text-align: left;
+}
+.carousel-slide h3 {
+    margin-bottom: 1rem;
+}
+.button-icon {
+    border: none;
+    outline: none;
+    color: #5a40c6;
+    background: white;
+    align-self: start;
+    display: block;
+}
+.button-icon :hover {
+    color: #8e7dd3;
+    border: 1px solid #5a40c6;
 }
 </style>

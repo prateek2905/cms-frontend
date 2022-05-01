@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from './App.vue'
-
 Vue.config.productionTip = false
 
 new Vue({
@@ -32,6 +31,3 @@ readMoreButton.addEventListener('click', () => {
   }
   dots.classList.toggle('removeDots');
 })
-
-
-// let currentScrollPosition = 0;
