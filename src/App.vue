@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <Intro />
     <Benefits />
     <About />
+    <Compensation />
   </div>
 </template>
 
@@ -11,7 +13,7 @@
 import Intro from "./components/Intro.vue";
 import Benefits from "./components/Benefits.vue";
 import About from './components/About.vue';
-
+import Compensation from './components/Compensation.vue'
 
 export default {
   name: "App",
@@ -19,6 +21,7 @@ export default {
     Intro,
     Benefits,
     About,
+    Compensation
   },
 };
 </script>
