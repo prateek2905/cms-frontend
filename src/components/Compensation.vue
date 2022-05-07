@@ -11,18 +11,37 @@
       </div>
       <div class="graph-content">
         <div class="left-content">
-          Company's Performance
+          <div class="label">
+            Company's Performance
+          </div>
           <select class="performance">
             <option value="Current">Current - 1x</option>
             <option value="Good">Good - 3x</option>
             <option value="Staples">Staples - 5x</option>
             <option value="Office Depot">Office Depot - 10x</option>
+            <option value="Custom">Custom - 1x</option>
           </select>
           <div class="selector-box">
-            Year 1
-            <div class="selections">
+            <div class="year-name">Year 1</div>
+            <div class="Different-Sections">
+              <div class="selections" v-for="item in items" :key="item.text">
+                <div class="selection-heading">{{item.heading}}</div>
+                <div class="selection-text">${{item.text}}</div>
+                <div class="toggle-button-cover">
+                <div class="button r" id="button-1">
+                    <input type="checkbox" class="checkbox" :style="'{{item.bckol}}'"/>
+                    <div class="knobs"></div>
+                    <div class="layer"></div>
+                </div>               
+              </div>
+              </div>
+            </div>
+            <!-- <div class="selections">
               <div class="selection-text">
-                benefits
+                Benefits
+              </div>
+              <div class="selection-price">
+
               </div>
               <div class="toggle-button-cover">
                 <div class="button r" id="button-1">
@@ -31,7 +50,47 @@
                     <div class="layer"></div>
                 </div>               
               </div>
-            </div>
+              <div class="selection-text">
+                Target Bonus
+              </div>
+              <div class="toggle-button-cover">
+                <div class="button r" id="button-1">
+                    <input type="checkbox" class="checkbox" />
+                    <div class="knobs"></div>
+                    <div class="layer"></div>
+                </div>               
+              </div>
+              <div class="selection-text">
+                Sign-on Bonus
+              </div>
+              <div class="toggle-button-cover">
+                <div class="button r" id="button-1">
+                    <input type="checkbox" class="checkbox" />
+                    <div class="knobs"></div>
+                    <div class="layer"></div>
+                </div>               
+              </div>
+              <div class="selection-text">
+                Equity
+              </div>
+              <div class="toggle-button-cover">
+                <div class="button r" id="button-1">
+                    <input type="checkbox" class="checkbox" />
+                    <div class="knobs"></div>
+                    <div class="layer"></div>
+                </div>               
+              </div>
+              <div class="selection-text">
+                Base Salary
+              </div>
+              <div class="toggle-button-cover">
+                <div class="button r" id="button-1">
+                    <input type="checkbox" class="checkbox" />
+                    <div class="knobs"></div>
+                    <div class="layer"></div>
+                </div>               
+              </div>
+            </div> -->
           </div>
         </div>
         <div class="right-content">
@@ -44,33 +103,91 @@
 </template>
 
 <script>
-
+export default {
+  data() {
+    return {
+      items: [
+        {
+          heading: "Benefits",
+          text: 20400,
+          bckol: "rgb(149, 111, 250)"
+        },
+        {
+          heading: "Target Bonus",
+          text: 10000,
+          bckol: "rgb(78, 132, 158)"
+        },
+        {
+          heading: "Sign-on Bonus",
+          text: 20400,
+          bckol: "rgb(107, 189, 212)"
+        },
+        {
+          heading: "Equity",
+          text: 20400,
+          bckol: "rgb(241, 166, 40)"
+        },
+        {
+          heading: "Base Salary",
+          text: 100000,
+          bckol: "rgb(68, 179, 105)"
+        },
+      ]
+    }
+  }
+}
 </script>
 
 <style>
-
+.heading h2 {
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+.label{
+  opacity: .5;
+  margin-bottom: 5px;
+}
 .graph-content{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .left-content{
   display: flex;
   flex-direction: column;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 5px;
+  margin-left: 10px;
 }
 .selections{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  display: block;
 }
-
+.selection-text, .selection-heading {
+  text-align: left;
+}
+.selection-text {
+  opacity: .5;
+  font-size: 13px;
+}
+.selector-box {
+  width: 275px;
+  border: 1px solid #d9d9d9;
+  padding: 25px;
+  border-radius: 5px;
+}
 .performance{
   text-align: center;
   cursor: pointer;
   border-radius: 5px;
-  
+  border: 1px solid #d9d9d9;
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 100%;
+  margin-bottom: 2rem;
 }
   .toggle-button-cover {
   display: table-cell;
@@ -81,7 +198,10 @@
   height: 140px; */
   box-sizing: border-box;
 }
-
+.year-name {
+  opacity: .8;
+  text-align: left;
+}
 
 .button-cover:before {
   counter-increment: button-counter;
@@ -110,8 +230,9 @@
   top: 50%;
   width: 60px;
   height: 30px;
-  margin: -20px auto 0 auto;
+  margin: -20px -3rem 0 auto;
   overflow: hidden;
+  margin-top: -2.6rem;
 }
 
 .button.r,
@@ -178,5 +299,10 @@
 #button-1 .layer {
   transition: 0.3s ease all;
 }
-
+.r {
+  margin-left: 150px;
+}
+.year-name {
+  margin-bottom: 2rem;
+}
 </style>

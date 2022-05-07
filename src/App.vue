@@ -4,24 +4,24 @@
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <Intro />
     <Benefits />
-    <About />
     <Compensation />
+    <About />
   </div>
 </template>
 
 <script>
 import Intro from "./components/Intro.vue";
 import Benefits from "./components/Benefits.vue";
-import About from './components/About.vue';
 import Compensation from './components/Compensation.vue'
+import About from './components/About.vue';
 
 export default {
   name: "App",
   components: {
     Intro,
     Benefits,
+    Compensation,
     About,
-    Compensation
   },
 };
 </script>
