@@ -25,6 +25,7 @@ export default {
   components: {
     Intro,
     Benefits,
+    Compensation,
     About,
     Compensation,
   },
