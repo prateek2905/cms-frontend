@@ -5,7 +5,7 @@
     <Intro />
     <Benefits />
     <About />
-    <Compensation />
+    <Compensation bgColor='red' />
   </div>
 </template>
 
@@ -13,15 +13,20 @@
 import Intro from "./components/Intro.vue";
 import Benefits from "./components/Benefits.vue";
 import About from './components/About.vue';
-import Compensation from './components/Compensation.vue'
+import Compensation from './components/Compensation.vue';
 
 export default {
   name: "App",
+  data(){
+    return{
+      
+    }
+  },
   components: {
     Intro,
     Benefits,
     About,
-    Compensation
+    Compensation,
   },
 };
 </script>

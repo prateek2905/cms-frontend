@@ -18,8 +18,8 @@
             <option value="Staples">Staples - 5x</option>
             <option value="Office Depot">Office Depot - 10x</option>
           </select>
-          <div class="selector-box">
-            Year 1
+          <div class="selector-box" >
+            year 1
             <div class="selections">
               <div class="selection-text">
                 benefits
@@ -27,8 +27,8 @@
               <div class="toggle-button-cover">
                 <div class="button r" id="button-1">
                     <input type="checkbox" class="checkbox" />
-                    <div class="knobs"></div>
-                    <div class="layer"></div>
+                    <div class="knobs"  :style="{backgroundColor:bgColor}"></div>
+                    <div class="layer" ></div>
                 </div>               
               </div>
             </div>
@@ -44,6 +44,13 @@
 </template>
 
 <script>
+
+export default {
+  name: 'button',
+  props: {
+    bgColor: String
+  },
+}
 
 </script>
 
@@ -151,12 +158,12 @@
   right: 4px;
   width: 20px;
   height: 10px;
-  color: #dc0505;
+  
   font-size: 10px;
   font-weight: bold;
   text-align: center;
   line-height: 1;
-  padding: 6.5px 2.1px;
+  padding: 6px 1.5px;
   background-color: #a14dec;
   border-radius: 50%;
   transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
