@@ -21,22 +21,9 @@
             <option value="Office Depot">Office Depot - 10x</option>
             <option value="Custom">Custom - 1x</option>
           </select>
-          <div class="selector-box">
-            <div class="year-name">Year 1</div>
-            <div class="Different-Sections">
-              <div class="selections" v-for="item in items" :key="item.text">
-                <div class="selection-heading">{{item.heading}}</div>
-                <div class="selection-text">${{item.text}}</div>
-                <div class="toggle-button-cover">
-                <div class="button r" id="button-1">
-                    <input type="checkbox" class="checkbox" :style="'{{item.bckol}}'"/>
-                    <div class="knobs"></div>
-                    <div class="layer"></div>
-                </div>               
-              </div>
-              </div>
-            </div>
-            <!-- <div class="selections">
+          <div class="selector-box" >
+            year 1
+            <div class="selections">
               <div class="selection-text">
                 Benefits
               </div>
@@ -46,8 +33,8 @@
               <div class="toggle-button-cover">
                 <div class="button r" id="button-1">
                     <input type="checkbox" class="checkbox" />
-                    <div class="knobs"></div>
-                    <div class="layer"></div>
+                    <div class="knobs"  :style="{backgroundColor:bgColor}"></div>
+                    <div class="layer" ></div>
                 </div>               
               </div>
               <div class="selection-text">
@@ -103,39 +90,14 @@
 </template>
 
 <script>
+
 export default {
-  data() {
-    return {
-      items: [
-        {
-          heading: "Benefits",
-          text: 20400,
-          bckol: "rgb(149, 111, 250)"
-        },
-        {
-          heading: "Target Bonus",
-          text: 10000,
-          bckol: "rgb(78, 132, 158)"
-        },
-        {
-          heading: "Sign-on Bonus",
-          text: 20400,
-          bckol: "rgb(107, 189, 212)"
-        },
-        {
-          heading: "Equity",
-          text: 20400,
-          bckol: "rgb(241, 166, 40)"
-        },
-        {
-          heading: "Base Salary",
-          text: 100000,
-          bckol: "rgb(68, 179, 105)"
-        },
-      ]
-    }
-  }
+  name: 'button',
+  props: {
+    bgColor: String
+  },
 }
+
 </script>
 
 <style>
@@ -272,12 +234,12 @@ export default {
   right: 4px;
   width: 20px;
   height: 10px;
-  color: #dc0505;
+  
   font-size: 10px;
   font-weight: bold;
   text-align: center;
   line-height: 1;
-  padding: 6.5px 2.1px;
+  padding: 6px 1.5px;
   background-color: #a14dec;
   border-radius: 50%;
   transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
