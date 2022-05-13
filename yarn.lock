@@ -2476,6 +2476,11 @@
     "mdn-data" "2.0.14"
     "source-map" "^0.6.1"
 
+"css-variable@^3.4.0":
+  "integrity" "sha512-Ij3y+W6/LI8EnNIgS7wcfXKF/n9inIZ+uS1i48ItW7fsFryQBv4l3wz/GlVLKy2TDbkOZ+JvhLhy84moEKxR8A=="
+  "resolved" "https://registry.npmjs.org/css-variable/-/css-variable-3.4.0.tgz"
+  "version" "3.4.0"
+
 "css-what@^5.1.0":
   "integrity" "sha512-arSMRWIIFY0hV8pIxZMEfmMI47Wj3R/aWpZDDxWYCPEiOMv6tfOrnpDtgxBYPEQD4V0Y/958+1TdC3iWTFcUPw=="
   "resolved" "https://registry.npmjs.org/css-what/-/css-what-5.1.0.tgz"
