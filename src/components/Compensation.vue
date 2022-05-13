@@ -1,4 +1,4 @@
-<year2template>
+<template>
   <div class="offer-letter-background">
     <div class="offer-letter-content">
       <div class="heading">
@@ -38,7 +38,7 @@
                 <div class="button r" id="button-1">
                   <input
                     v-model="feature.isApplicable"
-                    type="checkbox"
+                    type="radio"
                     class="checkbox"
                   />
                   <div
@@ -164,7 +164,7 @@
       </div>
     </div>
   </div>
-</year2template>
+</template>
 
 <script>
 export default {
@@ -173,6 +173,9 @@ export default {
     return {
       temp: 0,
       salaryIncreasePercentage: 0,
+      year4bs: 0,
+      year3bs: 0,
+      year2bs: 0,
       year2height: 0,
       year3height: 0,
       year4height: 0,
@@ -272,7 +275,15 @@ export default {
         this.temp = 207900 + Number(((100000 * newValue) / 100).toFixed(2));
         this.year2TotalComp = this.temp;
         this.temp = 0;
-      
+        this.year2bs = 100000 + Number(((100000 * newValue) / 100).toFixed(2));
+        this.year3bs = this.year2bs + Number(((this.year2bs * newValue) / 100).toFixed(2));
+        this.year3TotalComp = 207900 + this.year3bs -100000;
+        
+        this.year4bs = this.year3bs + Number(((this.year3bs * newValue) / 100).toFixed(2));
+        this.year4TotalComp = 207900 + this.year4bs -100000;
+        this.year3bs = 0;
+        this.year4bs = 0;
+        this.year1height = 500 - Number(((100000 * newValue) / 100).toFixed(2));
 
       },
     },

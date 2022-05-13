@@ -31,14 +31,3 @@ readMoreButton.addEventListener('click', () => {
   }
   dots.classList.toggle('removeDots');
 })
-
-// var select = document.getElementById('performance');
-// var value = select.options[select.selectedIndex].value;
-// if(value == 2){
-//   document.querySelector('.section4').setAttribute("style", "height=255px");
-// }else if(value == 3){
-
-
-// }else if(value == 4){
-
-// }
