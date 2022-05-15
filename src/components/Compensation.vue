@@ -13,11 +13,11 @@
       <div class="graph-content">
         <div class="left-content">
           <div class="label">Company's Performance</div>
-          <select id="performance">
-            <option value="Current">Current - 1x</option>
-            <option value="2">Good - 3x</option>
-            <option value="3">Staples - 5x</option>
-            <option value="4">Office Depot - 10x</option>
+          <select id="performance" @change = "select">
+            <option value="1">Current - 1x</option>
+            <option value="3">Good - 3x</option>
+            <option value="5">Staples - 5x</option>
+            <option value="10">Office Depot - 10x</option>
           </select>
           <div class="selector-box">
             year 1
@@ -34,11 +34,11 @@
                 <div class="selection-price">${{ feature.value }}</div>
               </div>
               <div class="toggle-button-cover">
-                {{ feature.isApplicable }}
+                
                 <div class="button r" id="button-1">
                   <input
                     v-model="feature.isApplicable"
-                    type="radio"
+                    type="checkbox"
                     class="checkbox"
                   />
                   <div
@@ -55,14 +55,16 @@
           class="right-content"
           style="margin-left: -24px; margin-right: -24px; height: 500px"
         >
-          <div class="CompensationBar" style="height: 500px">
+          <div class="CompensationBar" :style="`height: ${percentage.year1TotalComp.value}px`">
             <div class="CompensationBar_label">${{ year1TotalComp }}</div>
             <div
               class="CompensationBar_section CompensationBar_firstSection"
+              v-if="features[0].isApplicable"
               :style="`background-color: rgb(149, 111, 250); height: ${year1Data[0]}px;`"
             ></div>
             <div
               class="CompensationBar_section section2"
+              v-if="features[1].isApplicable"
               :style="`background-color: rgb(78, 132, 158); height: ${year1Data[1]}px;`"
             ></div>
             <div
@@ -72,74 +74,88 @@
             ></div>
             <div
               class="CompensationBar_section section4"
+              v-if="features[3].isApplicable"
               :style="`background-color: rgb(241, 166, 40); height: ${year1Data[3]}px;`"
             ></div>
 
             <div
               class="CompensationBar_section CompensationBar_lastSection"
+              v-if="features[4].isApplicable"
               :style="`background-color: rgb(68, 179, 105); height: ${year1Data[4]}px;`"
             ></div>
             <div class="CompensationBar_bottomLabel">Year 1</div>
           </div>
-          <div class="CompensationBar" :style="`height: ${year2height}px;`">
+          <div class="CompensationBar" :style="`height: ${percentage.year2TotalComp.value}px`">
             <div class="CompensationBar_label">${{ year2TotalComp }}</div>
             <div
               class="CompensationBar_section CompensationBar_firstSection"
+              v-if="features[0].isApplicable"
               :style="`background-color: rgb(149, 111, 250); height: ${year2Data[0]}px;`"
             ></div>
             <div
               class="CompensationBar_section section2"
+              v-if="features[1].isApplicable"
               :style="`background-color: rgb(78, 132, 158); height: ${year2Data[1]}px;`"
             ></div>
             <div
               class="CompensationBar_section section4"
+              v-if="features[3].isApplicable"
               :style="`background-color: rgb(241, 166, 40); height: ${year2Data[2]}px;`"
             ></div>
 
             <div
               class="CompensationBar_section CompensationBar_lastSection"
+              v-if="features[4].isApplicable"
               :style="`background-color: rgb(68, 179, 105); height: ${year2Data[3]}px;`"
             ></div>
             <div class="CompensationBar_bottomLabel">Year 2</div>
           </div>
-          <div class="CompensationBar" :style="`height: ${year3height}px;`">
+          <div class="CompensationBar" :style="`height: ${percentage.year3TotalComp.value}px`">
             <div class="CompensationBar_label">${{ year3TotalComp }}</div>
             <div
               class="CompensationBar_section CompensationBar_firstSection"
+              v-if="features[0].isApplicable"
               :style="`background-color: rgb(149, 111, 250); height: ${year3Data[0]}px`"
             ></div>
             <div
               class="CompensationBar_section section2"
+              v-if="features[1].isApplicable"
               :style="`background-color: rgb(78, 132, 158); height: ${year3Data[1]}px`"
             ></div>
             <div
               class="CompensationBar_section section4"
+              v-if="features[3].isApplicable"
               :style="`background-color: rgb(241, 166, 40); height: ${year3Data[2]}px`"
             ></div>
 
             <div
               class="CompensationBar_section CompensationBar_lastSection"
+              v-if="features[4].isApplicable"
               :style="`background-color: rgb(68, 179, 105); height: ${year3Data[3]}px`"
             ></div>
             <div class="CompensationBar_bottomLabel">Year 3</div>
           </div>
-          <div class="CompensationBar" :style="`height: ${year4height}px;`">
+          <div class="CompensationBar" :style="`height: ${percentage.year4TotalComp.value}px`">
             <div class="CompensationBar_label">${{ year4TotalComp }}</div>
             <div
               class="CompensationBar_section CompensationBar_firstSection"
+              v-if="features[0].isApplicable"
               :style="`background-color: rgb(149, 111, 250); height: ${year4Data[0]}px`"
             ></div>
             <div
               class="CompensationBar_section section2"
+              v-if="features[1].isApplicable"
               :style="`background-color: rgb(78, 132, 158); height: ${year4Data[1]}px`"
             ></div>
             <div
               class="CompensationBar_section section4"
+              v-if="features[3].isApplicable"
               :style="`background-color: rgb(241, 166, 40); height: ${year4Data[2]}px`"
             ></div>
 
             <div
               class="CompensationBar_section CompensationBar_lastSection"
+              v-if="features[4].isApplicable"
               :style="`background-color: rgb(68, 179, 105); height: ${year4Data[3]}px`"
             ></div>
             <div class="CompensationBar_bottomLabel">Year 4</div>
@@ -167,11 +183,18 @@
 </template>
 
 <script>
+import _ from 'lodash';
 export default {
   name: "button",
   data() {
     return {
       temp: 0,
+      currentEquity: 1,
+      percentage: {year1TotalComp: {value: 500},
+      year2TotalComp: {value: 500},
+      year3TotalComp: {value: 500},
+      year4TotalComp: {value: 500},
+      },
       salaryIncreasePercentage: 0,
       year4bs: 0,
       year3bs: 0,
@@ -257,6 +280,7 @@ export default {
   },
 
   watch: {
+    
     salaryIncreasePercentage: {
       handler(newValue) {
         console.log(newValue);   
@@ -271,7 +295,6 @@ export default {
           Number(((this.year3Data[3] * newValue) / 100).toFixed(2));
         
 
-
         this.temp = 207900 + Number(((100000 * newValue) / 100).toFixed(2));
         this.year2TotalComp = this.temp;
         this.temp = 0;
@@ -285,9 +308,60 @@ export default {
         this.year4bs = 0;
         this.year1height = 500 - Number(((100000 * newValue) / 100).toFixed(2));
 
+        const arr = [{key: "year2TotalComp", value: this.year2TotalComp}, 
+        {key: "year3TotalComp", value: this.year3TotalComp},  
+        {key: "year1TotalComp", value: this.year1TotalComp}, 
+        {key: "year4TotalComp", value: this.year4TotalComp}];
+        const sortedArray = arr.sort(function (a, b) {
+            return a.value - b.value;
+            });
+          console.log({sortedArray});
+          const percentageArray = sortedArray.map((obj)=>({key:obj.key,value:Number(((obj.value/sortedArray[sortedArray.length - 1].value) * 500).toFixed(2))}));
+          console.log(percentageArray);
+        this.percentage = _.keyBy(percentageArray, 'key');
+        console.log(this.percentage)
       },
     },
   },
+  methods: {
+    select(e) {
+      if(e.target.options[e.target.options.selectedIndex].value > -1) {
+        const baseValue = this.features[3].value / this.currentEquity;
+        this.currentEquity = e.target.options[e.target.options.selectedIndex].value;
+          this.features[3].value = baseValue * this.currentEquity;  
+
+    this.year1TotalComp = this.features.reduce((total, obj) => {
+      return total + obj.value;
+    }, 0);
+    this.year2TotalComp = this.year1TotalComp - this.features[2].value;
+    this.year3TotalComp = this.year1TotalComp - this.features[2].value;
+    this.year4TotalComp = this.year1TotalComp - this.features[2].value;
+    const rawYear1Data = this.features.map((obj) => obj.value);
+    this.year1Data = rawYear1Data.map(
+      (val) => Number((val / this.year1TotalComp).toFixed(2)) * 500
+    );
+    const filteredArr = this.features.filter(
+      (obj) => obj.heading !== "Sign on bonus"
+    );
+    const rawData = filteredArr.map((obj) => obj.value);
+    const percentage = Number(
+      (this.year2TotalComp / this.year1TotalComp).toFixed(2)
+    );
+    this.year2height = percentage * 500;
+    this.year2Data = rawData.map(
+      (val) => Number((val / this.year2TotalComp).toFixed(2)) * this.year2height
+    );
+    this.year3height = percentage * 500;
+    this.year3Data = rawData.map(
+      (val) => Number((val / this.year3TotalComp).toFixed(2)) * this.year3height
+    );
+    this.year4height = percentage * 500;
+    this.year4Data = rawData.map(
+      (val) => Number((val / this.year4TotalComp).toFixed(2)) * this.year4height
+    );
+        }
+    }
+  }
 };
 </script>
 
@@ -454,7 +528,7 @@ export default {
 
 .layer {
   width: 100%;
-  background-color: #b5b5b5b5;
+  background-color: #7d7d7db5;
   transition: 0.3s ease all;
   z-index: 1;
 }
@@ -462,10 +536,10 @@ export default {
   content: "";
   position: absolute;
   top: 4px;
-  right: 4px;
+  left: 4px;
   width: 20px;
   height: 10px;
-
+  
   font-size: 10px;
   font-weight: bold;
   text-align: center;
@@ -478,9 +552,9 @@ export default {
 
 #button-1 .checkbox:checked + .knobs:before {
   content: "";
-  right: 30px;
+  left: 33px;
   background-color: var(--bubble-color);
-  opacity: 0.5;
+  
 }
 
 #button-1 .checkbox:checked ~ .layer {
