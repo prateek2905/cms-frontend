@@ -20,7 +20,7 @@
             <option value="10">Office Depot - 10x</option>
           </select>
           <div class="selector-box">
-            year 1
+            Year 1
             <div
               class="selections"
               v-for="(feature, index) in features"
