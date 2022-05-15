@@ -45,8 +45,15 @@ export default {
   -o-border-radius: 15px;
   margin: 40px 80px;
   padding: 34px;
+  width: auto;
 }
+/* @media screen and (max-width: 1110px) {
+  .offer-letter-background{
+    width: 940px;
+  }
+} */
 body {
   background-color: #2c3e50;
+  width:fit-content;
 }
 </style>

@@ -23,8 +23,11 @@
             Offer Expires: <b>{{ expiry }}</b> <br />
           </div>
         </div>
-        <div class="main-content-image">
+        <!-- <div class="main-content-image">
           <img :src="companyImg" alt="companyImg" />
+        </div> -->
+        <div class="main-content-image">
+          <!-- <img :src="companyImg" alt="companyImg" /> -->
         </div>
       </div>
       <div class="final-section">
@@ -85,12 +88,12 @@ export default {
   width: 110px;
 }
 .main-content-image {
-  
-  width: 600px;
+  background-image: url('https://i.imgur.com/pKtwOVK.jpg');
   border-radius: 8px;
   background-position: center center;
   background-size: cover;
   box-shadow: 0 1px 2px #0000000d, 0 4px 8px #0000000d;
+  flex: .5;
 }
 .introTitle {
     font-size: 1.5rem;
@@ -114,10 +117,12 @@ export default {
 }
 .main-content {
   display: flex;
+  width: 100%;
 }
 .main-content .left-para {
   margin-right: 45px;
   text-align: start;
+  flex: .5;
 }
 .main-content .left-para h2 {
   font-size: 2rem;
@@ -143,5 +148,9 @@ export default {
   margin-right: 30px;
   width: 20%;
 }
-
+@media screen and (max-width: 765px) {
+  .main-content {
+    flex-direction: column;
+  }
+}
 </style>
