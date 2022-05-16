@@ -38,6 +38,7 @@
                 <div class="button r" id="button-1">
                   <input
                     v-model="feature.isApplicable"
+                    @change="check(feature, index)"
                     type="checkbox"
                     class="checkbox"
                   />
@@ -213,30 +214,35 @@ export default {
       features: [
         {
           heading: "Benefits",
+          originalValue: 20400,
           value: 20400,
           isApplicable: true,
           bgColor: "#956ffa",
         },
         {
           heading: "Target bonus",
+          originalValue: 10000,
           value: 10000,
           isApplicable: true,
           bgColor: "#4e849e",
         },
         {
           heading: "Sign on bonus",
+          originalValue: 10000,
           value: 10000,
           isApplicable: true,
           bgColor: "#6bbdd4",
         },
         {
           heading: "Equity",
+          originalValue: 77500,
           value: 77500,
           isApplicable: true,
           bgColor: "#f1a628",
         },
         {
           heading: "Base salary",
+          originalValue: 100000,
           value: 100000,
           isApplicable: true,
           bgColor: "#44b369",
@@ -245,38 +251,7 @@ export default {
     };
   },
   mounted() {
-    this.year1TotalComp = this.features.reduce((total, obj) => {
-      return total + obj.value;
-    }, 0);
-    this.year2TotalComp = this.year1TotalComp - this.features[2].value;
-    this.year3TotalComp = this.year1TotalComp - this.features[2].value;
-    this.year4TotalComp = this.year1TotalComp - this.features[2].value;
-    const rawYear1Data = this.features.map((obj) => obj.value);
-    this.year1Data = rawYear1Data.map(
-      (val) => Number((val / this.year1TotalComp).toFixed(2)) * 500
-    );
-    const filteredArr = this.features.filter(
-      (obj) => obj.heading !== "Sign on bonus"
-    );
-    const rawData = filteredArr.map((obj) => obj.value);
-    const percentage = Number(
-      (this.year2TotalComp / this.year1TotalComp).toFixed(2)
-    );
-    this.year2height = percentage * 500;
-    this.year2Data = rawData.map(
-      (val) => Number((val / this.year2TotalComp).toFixed(2)) * this.year2height
-    );
-    this.year3height = percentage * 500;
-    this.year3Data = rawData.map(
-      (val) => Number((val / this.year3TotalComp).toFixed(2)) * this.year3height
-    );
-    this.year4height = percentage * 500;
-    this.year4Data = rawData.map(
-      (val) => Number((val / this.year4TotalComp).toFixed(2)) * this.year4height
-    );
-    console.log(this.year2Data);
-    console.log(this.year1Data);
-    console.log(this.year3height);
+    this.recalculate();
   },
 
   watch: {
@@ -324,6 +299,46 @@ export default {
     },
   },
   methods: {
+    check(feature) {
+      if(feature.isApplicable){
+        feature.value = feature.originalValue;
+      }else{
+        feature.value = 0;
+      }
+      this.recalculate();
+    },
+    recalculate(){
+    this.year1TotalComp = this.features.reduce((total, obj) => {
+      return total + obj.value;
+    }, 0);
+    this.year2TotalComp = this.year1TotalComp - this.features[2].value;
+    this.year3TotalComp = this.year1TotalComp - this.features[2].value;
+    this.year4TotalComp = this.year1TotalComp - this.features[2].value;
+    const rawYear1Data = this.features.map((obj) => obj.value);
+    this.year1Data = rawYear1Data.map(
+      (val) => Number((val / this.year1TotalComp).toFixed(2)) * 500
+    );
+    const filteredArr = this.features.filter(
+      (obj) => obj.heading !== "Sign on bonus"
+    );
+    const rawData = filteredArr.map((obj) => obj.value);
+    const percentage = Number(
+      (this.year2TotalComp / this.year1TotalComp).toFixed(2)
+    );
+    this.year2height = percentage * 500;
+    this.year2Data = rawData.map(
+      (val) => Number((val / this.year2TotalComp).toFixed(2)) * this.year2height
+    );
+    this.year3height = percentage * 500;
+    this.year3Data = rawData.map(
+      (val) => Number((val / this.year3TotalComp).toFixed(2)) * this.year3height
+    );
+    this.year4height = percentage * 500;
+    this.year4Data = rawData.map(
+      (val) => Number((val / this.year4TotalComp).toFixed(2)) * this.year4height
+    );
+    },
+
     select(e) {
       if(e.target.options[e.target.options.selectedIndex].value > -1) {
         const baseValue = this.features[3].value / this.currentEquity;
