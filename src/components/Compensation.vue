@@ -53,8 +53,8 @@
         </div>
         <div
           class="right-content"
-          style="margin-left: -24px; margin-right: -24px; height: 500px"
         >
+          <!-- style="margin-left: -24px; margin-right: -24px; height: 500px" -->
           <div class="CompensationBar" :style="`height: ${percentage.year1TotalComp.value}px`">
             <div class="CompensationBar_label">${{ year1TotalComp }}</div>
             <div
@@ -420,6 +420,7 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-flow: wrap;
 }
 .left-content {
   display: flex;
@@ -599,4 +600,29 @@ export default {
   background: #04aa6d;
   cursor: pointer;
 }
+.right-content {
+    margin-left: -24px;
+    margin-right: -24px;
+    height: 500px;
+}
+@media screen and (max-width: 765px) {
+  .graph-content {
+    flex-direction: column;
+    margin: auto;
+  }
+  #performance {
+    width: 28%;
+    margin-left: 317px;
+  }
+  .selector-box {
+    margin-left: 320px;
+  }
+  .right-content {
+    margin-left: 130px;
+    margin-top: 15px;
+  }
+  .CompensationBar {
+    height: 340px;
+  }
+} 
 </style>

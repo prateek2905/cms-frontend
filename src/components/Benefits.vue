@@ -336,5 +336,13 @@ export default {
   border: none;
   background: white;
 }
-
+/* @media screen and (max-width: 765px) {
+  .offer-letter-content h2 {
+    text-align: center;
+  }
+  .top-section {
+    flex-flow: row wrap;
+    display: block;
+  }
+} */
 </style>

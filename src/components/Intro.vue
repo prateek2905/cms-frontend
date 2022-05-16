@@ -118,6 +118,8 @@ export default {
 .main-content {
   display: flex;
   width: 100%;
+  flex-flow: row wrap;
+  row-gap: 23px;
 }
 .main-content .left-para {
   margin-right: 45px;
@@ -134,6 +136,8 @@ export default {
 .final-section {
   margin: 58px 25px;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .final-section .final-section-heading,
 .final-section .final-section-description {
@@ -146,11 +150,26 @@ export default {
 }
 .final-section-blocks {
   margin-right: 30px;
-  width: 20%;
+  margin-bottom: 30px;
+  width: 15%;
 }
 @media screen and (max-width: 765px) {
   .main-content {
     flex-direction: column;
+    display: block;
+  }
+  .main-content-image {
+    width: 600px;
+    padding: 120px;
+    justify-content: center;
+    text-align: center;
+    background-size: stretch;
+    margin: auto;
+  }
+  .final-section-blocks {
+    /* margin-right: 30px; */
+    width: 35%;
   }
 }
+
 </style>

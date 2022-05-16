@@ -264,7 +264,7 @@ export default {
 }
 .details {
     /* border: 1px solid red; */
-    display: block;
+    /* display: block; */
     width: 430px;
     height: 100px;
     font-weight: 500;
@@ -380,5 +380,32 @@ export default {
 .button-icon :hover {
     color: #8e7dd3;
     border: 1px solid #5a40c6;
+}
+@media screen and (max-width: 765px) {
+    .basic-details {
+        display: block;
+        
+    }
+.details-1 {
+    /* display: block; */
+    width: 100%;
+    /* flex: 0 0 50%; */
+    /* max-width: 25%; */
+}
+.details-2 {
+    display: block;
+    flex: 0 0 16.66666667%;
+    max-width: 16.66666667%;
+}
+.details-6 {
+    display: block;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.details-7 {
+    display: block;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
 }
 </style>
