@@ -231,7 +231,7 @@ export default {
   border: 1px solid #ddd;
 }
 .counter {
-  margin: 0 5px 0 5px;
+  line-height: 65px;
   font-size: 20px;
   color: #956ffa;
 }
@@ -302,6 +302,7 @@ export default {
 .dependents {
   margin-right: 50%;
   display: -webkit-inline-box;
+  height: 65px;
 }
 .contribution {
   margin-top: -50px;
