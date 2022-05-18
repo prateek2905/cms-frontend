@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style lang="css">
-.logo-section {
+.logo-section img {
   width: 110px;
 }
 .main-content-image {

@@ -186,7 +186,7 @@
 <script>
 import _ from 'lodash';
 export default {
-  name: "button",
+  name: "Compensation",
   data() {
     return {
       temp: 0,

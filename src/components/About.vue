@@ -33,7 +33,7 @@
             @prev="prev">
             
             <carousel-slide v-for="(slide, index) in slides"
-                            :key="slide" 
+                            :key="index" 
                             :index="index"
                             :visibleSlides="visibleSlides"
             >
@@ -46,7 +46,7 @@
                 <div class="details-1 details">
                     <div class="headings">Website</div>
                     <div class="texts">
-                        <a :href="Website" target="_blank">{{ Website_Content }}</a>
+                        <a href="https://google.com" target="_blank">{{ Website_Content }}</a>
                     </div>
                 </div>
                 <div class="details-2 details" v-for="detail in details" :key="detail.message">

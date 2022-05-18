@@ -79,7 +79,6 @@
 <script>
 
 export default {
-  el: "#dropdown",
   data() {
     return {
       counter: 0,
@@ -219,7 +218,7 @@ export default {
 
 .faq-label {
   cursor: pointer;
-  width: 100%;
+  /* width: 100%; */
   padding: 10px 25px;
   justify-content: space-between;
   align-items: center;
