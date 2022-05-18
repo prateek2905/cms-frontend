@@ -8,7 +8,7 @@
         <div class="left-para">
           <div class="introTitle">
             Welcome to the team, <br />
-            {{ employee }}.
+            {{ intro.candidateName }}.
           </div>
           <p>
             Congratulations! The team at Dunder Mifflin is very excited to
@@ -18,9 +18,9 @@
             for all.
           </p>
           <div class="offer-details-section">
-            Title: <b>{{ jobTitle }}</b> <br />
-            Location: <b>{{ jobLocation }}</b> <br />
-            Offer Expires: <b>{{ expiry }}</b> <br />
+            Title: <b>{{ intro.jobTitle }}</b> <br />
+            Location: <b>{{ intro.jobLocation }}</b> <br />
+            Offer Expires: <b>{{ intro.jobExpiryDate | formatDate }}</b> <br />
           </div>
         </div>
         <!-- <div class="main-content-image">
@@ -33,31 +33,31 @@
       <div class="final-section">
         <div class="base-salary final-section-blocks">
           <div class="final-section-heading">Base Salary</div>
-          <div class="final-section-value" style="color: #44b369">$100,000</div>
+          <div class="final-section-value" style="color: #44b369">${{intro.baseSalary}}</div>
           <div class="final-section-description">Your annual Salary</div>
         </div>
         <div class="equity final-section-blocks">
           <div class="final-section-heading">Equity</div>
-          <div class="final-section-value" style="color: #f1a628">100,000</div>
+          <div class="final-section-value" style="color: #f1a628">{{intro.noOfShares}}</div>
           <div class="final-section-description">
             Options earned over 4 years
           </div>
         </div>
         <div class="sign-on-bonus final-section-blocks">
           <div class="final-section-heading">Sign on Bonus</div>
-          <div class="final-section-value" style="color: #6bbdd4">10,000</div>
+          <div class="final-section-value" style="color: #6bbdd4">{{intro.signingBonus}}</div>
           <div class="final-section-description">For joining us</div>
         </div>
         <div class="target-bonus final-section-blocks">
           <div class="final-section-heading">Target Bonus</div>
-          <div class="final-section-value" style="color: #4e849e">10%</div>
+          <div class="final-section-value" style="color: #4e849e">{{intro.targetBonus}}%</div>
           <div class="final-section-description">
             If you hit your performance target
           </div>
         </div>
         <div class="benefits final-section-blocks">
           <div class="final-section-heading">Benefits</div>
-          <div class="final-section-value" style="color: #956ffa">$20,400</div>
+          <div class="final-section-value" style="color: #956ffa">${{intro.benefits}}</div>
           <div class="final-section-description">
             Company's estimated annual contribution
           </div>
@@ -69,7 +69,15 @@
 </template>
 
 <script>
+import format from 'date-fns/format'
 export default {
+  props: {
+    intro: {
+      type: Object,
+      required: true,
+      default: () => ({})
+    },
+  },
   data() {
     return {
       employee: 'Jane',
@@ -78,6 +86,14 @@ export default {
       expiry: '1/1/2025',
       companyImg: 'https://i.imgur.com/pKtwOVK.jpg',
       logo_image: 'https://i.imgur.com/PxHRCCh.jpg'
+    }
+  },
+  filters: {
+    formatDate(value){
+      if(!value){
+        return '';
+      }
+      return format(new Date(value), 'MMM dd, yyyy')
     }
   }
 };

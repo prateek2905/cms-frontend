@@ -2,7 +2,7 @@
   <div id="app">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <Intro />
+    <Intro :intro="introData" />
     <Benefits />
     <Compensation />
     <About />
@@ -16,6 +16,7 @@ import Benefits from "./components/Benefits.vue";
 import About from './components/About.vue';
 import Compensation from './components/Compensation.vue';
 import Buttons from './components/Buttons.vue';
+import axios from 'axios';
 
 export default {
   name: "App",
@@ -26,6 +27,16 @@ export default {
     About,
     Buttons,
   },
+  data(){
+    return {
+      introData: {},
+    }
+  },
+  async created(){
+    const {data} = await axios.get(`http://localhost:5000/api/Offers/?uniqueId=${this.$route.query.uniqueId}`);
+    const { offer} = data;
+    this.introData = offer.introSection
+  }
 };
 </script>
 
