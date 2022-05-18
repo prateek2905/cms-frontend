@@ -19,19 +19,6 @@ new Vue({
 
 
 
-let faqLabel = document.querySelectorAll(".faq-label");
-faqLabel.forEach(item => item.onclick = () => {
-
-  item.nextElementSibling.classList.toggle('active');
-
-
-  let labelIcon = item.lastElementChild;
-  let icons = labelIcon.lastElementChild;
-  let rotation = icons.lastElementChild;
-  rotation.classList.toggle('rotate');
-
-})
-
 const readMoreButton = document.querySelector('.read-more-button');
 const text = document.querySelector('.moreText');
 const dots = document.querySelector('.dots');

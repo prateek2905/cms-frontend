@@ -3,7 +3,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <Intro :intro="introData" />
-    <Benefits />
+    <Benefits :benefits="benefitsData" />
     <Compensation />
     <About />
     <Buttons />
@@ -30,12 +30,15 @@ export default {
   data(){
     return {
       introData: {},
+      benefitsData: []
     }
   },
   async created(){
     const {data} = await axios.get(`http://localhost:5000/api/Offers/?uniqueId=${this.$route.query.uniqueId}`);
     const { offer} = data;
+    console.log(data);
     this.introData = offer.introSection
+    this.benefitsData = offer.benefitsSection;
   }
 };
 </script>

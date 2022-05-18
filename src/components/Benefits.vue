@@ -31,35 +31,35 @@
           </div>
         </div>
       </div>
-      <button class="expand" id="expandAndCollapse" @click="expandAndCollapse">Expand All</button>
+      <button class="expand" id="expandAndCollapse" @click="expandAndCollapse">
+        Expand All
+      </button>
       <div class="main-content-benefit">
         <div class="bottom-section">
-          <div id="dropdown" v-for="item in items" :key="item.message">
-            <!-- <div v-for="item in items" :key="item.message"> -->
-
+          <div id="dropdown" v-for="(item, index) in items" :key="index">
             <div class="faq">
               <div class="faq-container">
                 <div class="faq-label">
                   <div class="faq-label-text">
                     <div class="faq-message">
-                      <span class="material-icons"> {{ item.icon }} </span>   
-                      <b>{{ item.message }}</b>                     
+                      <img :src="item.iconUrl" />
+                      <b>{{ item.name }}</b>
                     </div>
                     <div class="right-items">
-                      <div v-if="item.value > 0" class="faq-value">
-                        Estimated value: <b> ${{ item.value }}</b>
+                      <div v-if="item.amount > 0" class="faq-value">
+                        Estimated value: <b> ${{ item.amount }}</b>
                       </div>
 
                       <div class="faq-label-icon">
-                        <span class="material-icons"> expand_more </span>
+                        <span class="material-icons" @click="expandMore(index)"> expand_more </span>
                       </div>
                     </div>
-                  </div> 
+                  </div>
                 </div>
 
                 <div class="faq-answer">
                   <div class="faq-answer-content">
-                    {{ item.answer }}
+                    {{ item.description }}
                   </div>
                 </div>
               </div>
@@ -77,13 +77,19 @@
 </template>
 
 <script>
-
 export default {
+  props: {
+    benefits: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
+  },
   data() {
     return {
       counter: 0,
       contribution: 20400,
-      statusToggle: 'false',
+      statusToggle: "false",
       items: [
         {
           icon: "health_and_safety",
@@ -141,6 +147,15 @@ export default {
       ],
     };
   },
+  watch: {
+    benefits: {
+      handler() {
+        this.items = this.benefits;
+        this.contribution = this.items[0].amount;
+      },
+      deep: true,
+    },
+  },
   methods: {
     increment() {
       this.counter++;
@@ -158,37 +173,38 @@ export default {
       this.items[2].value -= 200;
     },
     expandAndCollapse() {
-    
-    let faqAnswer = document.querySelectorAll(".faq-answer");
-    let expandAndCollapseElem = document.getElementById("expandAndCollapse");
-    // let faqMessage = document.querySelectorAll(".right-items")
-    // let icon = faqMessage.lastElementChild;
+      let faqAnswer = document.querySelectorAll(".faq-answer");
+      let expandAndCollapseElem = document.getElementById("expandAndCollapse");
+      // let faqMessage = document.querySelectorAll(".right-items")
+      // let icon = faqMessage.lastElementChild;
 
-    if(!this.statusToggle) {
+      if (!this.statusToggle) {
         this.statusToggle = !this.statusToggle;
         expandAndCollapseElem.innerHTML = "Collapse All";
         // icon.classList.toggle("rotate");
         faqAnswer.forEach((item) => {
-            item.classList.add("active");
-        })
-    } else {
+          item.classList.add("active");
+        });
+      } else {
         this.statusToggle = !this.statusToggle;
         expandAndCollapseElem.innerHTML = "Expand All";
         // icon.classList.toggle("rotate");
         faqAnswer.forEach((item) => {
-            item.classList.remove("active");
-        })
-    }
-}
+          item.classList.remove("active");
+        });
+      }
+    },
+    expandMore(index){
+       let faqAnswer = document.querySelectorAll(".faq-answer");
+       const ourAnswer = faqAnswer[index];
+       ourAnswer.classList.toggle("active");
+    },
   },
 };
-
 </script>
 
 <style lang="css">
-
-
-.offer-letter-content{
+.offer-letter-content {
   padding: 10px;
 }
 .count-button {
@@ -197,7 +213,7 @@ export default {
   height: 25px;
   border-color: #956ffa;
 }
-.right-items{
+.right-items {
   display: flex;
 
   align-items: center;
@@ -259,7 +275,6 @@ export default {
   color: #365a5e;
   transition: 0.3s ease;
   padding: 10px 20px 10px 20px;
-  
 }
 
 .faq-answer {
